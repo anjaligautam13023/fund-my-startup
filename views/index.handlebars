@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title> </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet" />
+
+  <link href="css/responsive.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/21a480174c.js" crossorigin="anonymous"></script>
+  <style>
+    A:hover {
+      COLOR: blue;
+      TEXT-DECORATION: none;
+      font-weight: none
+    }
+
+    ;
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <header class="header" style="background-color: rgb(136, 135, 150); float:left">
+      <nav class="navbar navbar-expand-lg custom_nav-container fixed-top py-3"
+        style="background-color: rgb(229, 231, 238);">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse ml-5">
+          <ul class="navbar-nav ml-5 ">
+            <li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Home <span
+                  class="sr-only">(current)</span></a></li>
+            {{#if name}}
+            {{#if (eq user_type "Investor")}}<li class="nav-item"><a href="/profile?Id={{id}}"
+                class="nav-link text-uppercase font-weight-bold">
+                My profile</a></li>
+            {{else}}
+            <li class="nav-item"><a href="/about" class="nav-link text-uppercase font-weight-bold">
+                My products</a></li>
+            {{/if}}
+            {{#if (eq user_type "Investor")}}
+
+            <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"></a></li>
+            {{else}}
+            <li class="nav-item"><a href="/profile?Id={{id}}" class="nav-link text-uppercase font-weight-bold">My
+                profile</a></li>
+            {{/if}}
+            {{else}}
+            <li style="margin-left: 40%;"></li>
+            {{/if}}
+            <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            {{#if name}}
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+              <li class="nav-item"><a href="/logout" class="nav-link ml-5">logout</a></li>
+              <li class="nav-item"><a href="#" class="nav-link  ml-3"> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/contact" class="nav-link ml-5">login/signup</a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-3"> </a></li>
+             {{/if}}
+            <a href="/update?Id={{id}}">
+           
+             
+              <li><i class='fas fa-user-circle' style='font-size:38px;'></i></li>
+            </a>
+            
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="slider_section ">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 offset-md-1">
+            <div class="detail-box mt-5">
+              <h5><b>welcome {{name}}</b></h5>
+
+              <h1>
+                <span> Fund</span> <br>
+                My <br>
+                Startup
+              </h1>
+              <p>
+                If opportunity does not <b>knock</b>, build a <b>Door</b>.
+              </p>
+              <div class="btn-box">
+                <a href="#contact" class="">
+                  contact us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- find section -->
+
+  {{#if name}}
+
+
+  <section class="client_section layout_padding"
+    style="background-image:url(https://i.makeagif.com/media/1-19-2019/sK-FhV.gif);background-size:1900px">
+    <div class="container-fluid">
+      <div class="heading_container">
+        <h2>
+          Top Investor
+        </h2>
+      </div>
+      <div class="container">
+        {{log topinvestor}}
+        {{#each topinvestor}}
+
+
+        <div class="box mt-5 p-3" style="border: solid 2px;padding 10px;">
+          <div class="row">
+            <div class="col-4">
+              <img src="{{this.profile}}" height="200px" width="250px" style="border-radius: 7rem;">
+            </div>
+
+            <a href="/profile?Id={{this.id}}">
+              <div class="detail-box col-8">
+                <h5>
+                  {{this.user_name}}
+
+                </h5>
+                <p style="font-size: small;">{{this.tagline}}</p>
+                <hr>
+                <p style="font-size: medium;">Email:{{this.Email}}
+                </p>
+
+                <p style="font-size: medium;">Location:{{this.location}}
+                </p>
+                <p style="font-size: medium;">No of requests:{{this.top}}
+                </p>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        {{/each}}
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="sale_section layout_padding-bottom">
+    {{#if (eq user_type "Investor")}}
+    <div class="heading_container">
+      <h2>
+        Entreprenaur
+      </h2>
+      {{else}}
+      <div class="heading_container">
+        <h2>
+          Investors
+        </h2>
+        {{/if}}
+
+        <div class="container">
+
+          <div class="row">
+            {{#each db_data}}
+
+            <a href="profile?Id={{this.id}}">
+              <div class="card col-3 mx-4 ml-5 mt-3">
+                <img src="{{this.profile}}" alt="update your profile" height="200px" width="250px">
+                <h6 id="id1">{{ this.user_name}}</h6>
+                <p style="font-size: small;">({{this.tagline}})</p>
+                <hr>
+                <p class="title" style="font-size: small;">{{this.Email}}</p>
+                <p><button>view profile</button></p>
+              </div>
+            </a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+  </section>
+  {{/if}}
+  <section class="contact_section ">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Get In Touch
+        </h2>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="info_section " id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              About
+            </h5>
+            <div>
+              <div class="img-box">
+                <img src="images/location.png" width="18px" alt="">
+              </div>
+              <p>
+                Address
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/phone.png" width="12px" alt="">
+              </div>
+              <p>
+                +01 1234567890
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/mail.png" width="18px" alt="">
+              </div>
+              <p>
+                anjaligautam@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Information
+            </h5>
+            <p>
+              This page is designed to help entreprenaur and investor to connect and buid their buissness.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+
+  <!-- end  footer section -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+
+
+
+</body>
+
+</html>

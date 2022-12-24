@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <script src="https://kit.fontawesome.com/21a480174c.js" crossorigin="anonymous"></script>
+
+  <title>product</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+
+    <header class="header" style="background-color: white; float:left">
+      <nav class="navbar navbar-expand-lg custom_nav-container fixed-top py-3" style="background-color: white;">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse ml-5">
+          <ul class="navbar-nav ml-5 ">
+            <li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Home <span
+                  class="sr-only">(current)</span></a></li>
+            {{#if (eq user_type "investor")}}<li class="nav-item"><a href="/profile?Id={{id}}"
+                class="nav-link text-uppercase font-weight-bold">
+                My profile</a></li>
+            {{else}}
+            <li class="nav-item"><a href="/about" class="nav-link text-uppercase font-weight-bold">
+                My products</a></li>
+            {{/if}}
+            <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Investors</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-5"> </a></li>
+              {{#if name}}
+              <li class="nav-item"><a href="/contact" class="nav-link ml-5">logout</a></li>
+              <li class="nav-item"><a href="#" class="nav-link  ml-3"> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/contact" class="nav-link ml-5">login/signup</a></li>
+            <li class="nav-item"><a href="#" class="nav-link  ml-3"> </a></li>
+             {{/if}}
+            <li class="nav-item"><a href="#" class="nav-link  ml-3"> </a></li>
+            <a href="/update?Id={{id}}">
+              <li><i class='fas fa-user-circle' style='font-size:38px;'></i></li>
+            </a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- header section strats -->
+
+    <!-- end header section -->
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="heading_container">
+
+
+    <h2 style="margin-left: 40%;">
+      My Products
+    </h2>
+  </div>
+  <!-- about section -->
+
+
+   <a href="about/object-form"><button style="width:200px;margin-left:10%" class="btn btn-outline-primary">Add Product</button></a>
+  
+
+  <div class="container mt-5">
+    <div class="row"  >
+      {{#each pr_data}}
+      <div class="card bg-light mb-3 mx-2 col-12" style="max-width: 100rem;background-color: #C4C5DA;">
+        <div class="card-header" style="background-color:#616E9A;font-size:large">Product </div>
+        <div class="card-body" style="background-color: #C4C5DA;">
+          <div class="row">
+            <div class="col-4" >
+               <div class="col-5" >
+                <p class="card-text"><img height="200px" width="200px" src="{{this.product_image}}"></p>
+              </div>
+
+              </div>
+
+           
+            <div class="col-8">
+              <div class="row">
+
+              <div class="col-5">
+                <h5 class="card-title">Product name:</h5>
+              </div>
+              <div class="col-2">:</div>
+              <div  class="col-5">
+                <h5 class="card-title">{{this.Product_name}}</h5>
+              </div>
+             </div>
+             <div class="row">
+              <div class="col-5">
+                <p class="card-text">Product id:</p>
+              </div>
+              <div class="col-2">:</div>
+              <div class="col-5">
+                <p class="card-text">{{ this.product_id}}</p>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-5">
+                <p class="card-text">Launch date</p>
+              </div>
+              <div class="col-2">:</div>
+              <div class="col-5">
+                <p class="card-text">{{ this.launch_date}}</p>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-5">
+                <p class="card-text">Current valuation</p>
+              </div>
+              <div class="col-2">:</div>
+              <div class="col-5">
+                <p class="card-text">{{this.current_valuation}}</p>
+              </div>
+             </div>
+              <div class="row">
+              <div class="col-5">
+                <p class="card-text">Founder</p>
+              </div>
+              <div class="col-2">:</div>
+              <div class="col-5">
+                <p class="card-text">{{this.founders}}</p>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-5">
+                <p class="card-text">Description</p>
+              </div>
+              <div class="col-2">:</div>
+              <div class="col-5">
+                <p class="card-text">{{this.description}}</p>
+              </div>
+              </div>
+            
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{/each}}
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- end about section -->
+
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              About Apartment
+            </h5>
+            <div>
+              <div class="img-box">
+                <img src="images/location.png" width="18px" alt="">
+              </div>
+              <p>
+                Address
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/phone.png" width="12px" alt="">
+              </div>
+              <p>
+                +01 1234567890
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/mail.png" width="18px" alt="">
+              </div>
+              <p>
+                demo@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Information
+            </h5>
+            <p>
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Useful Link
+            </h5>
+            <ul>
+              <li>
+                <a href="">
+                  There are many
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  variations of
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  passages of
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Lorem Ipsum
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  available, but
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  the i
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <img src="images/fb.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/youtube.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section ">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </section>
+  <!-- end  footer section -->
+
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</body>
+
+</html>
